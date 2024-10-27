@@ -20,7 +20,7 @@ function ClientInfo({client}: ClientInfoProps) {
       </div>
       <h2 className="text-4xl mb-3">{client.name}</h2>
       <div className="mb-3">
-        <p className="mb-3">IČ: {client.regNumber}</p>
+        <p className="mb-3">IČ: {client.regNumber || '-'}</p>
         <div className="mb-3">
           <p>{client.primaryAddress?.address?.street}</p>
           <p>{client.primaryAddress?.address.zipCode} {client.primaryAddress?.address.city}</p>
@@ -32,9 +32,10 @@ function ClientInfo({client}: ClientInfoProps) {
           postcode={client.primaryAddress?.address.zipCode as string}
         />
       </div>
-      <p className="mb-3">Lorem ipsum odor amet, consectetuer adipiscing elit. Vestibulum augue nec phasellus tortor
-        aliquam. Lorem
-        ornare sem lacinia tellus vitae luctus velit iaculis.
+      <p className="mb-3">
+        Lorem ipsum odor amet, consectetuer adipiscing elit.
+        Vestibulum augue nec phasellus tortor aliquam.
+        Lorem ornare sem lacinia tellus vitae luctus velit iaculis.
       </p>
       <p>Vlastník: <strong>{client.owner?.fullName}</strong></p>
     </div>

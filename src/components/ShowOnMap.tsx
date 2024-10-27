@@ -5,6 +5,10 @@ interface ShowOnMapProps {
 }
 
 function ShowOnMap({street, city, postcode}: ShowOnMapProps) {
+  if (!street || !city || !postcode) {
+    return null
+  }
+
   const formattedAddress = `${street}, ${city}, ${postcode}`;
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formattedAddress)}`;
 
