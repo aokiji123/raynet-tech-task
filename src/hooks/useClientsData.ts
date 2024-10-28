@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
-import {getAllClientsData} from '@/utils/getAllClientsData.ts';
-import {ClientsData} from '@/types/clients/clients-data.type.ts';
+import {getClientsData} from '@/utils/getClientsData.ts';
+import {ClientsType} from '@/types';
 
-function useClientsData() {
-  const [clientsData, setClientsData] = useState<ClientsData | null>(null);
+export function useClientsData() {
+  const [clientsData, setClientsData] = useState<ClientsType | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -13,7 +13,7 @@ function useClientsData() {
       setError(null);
 
       try {
-        const data = await getAllClientsData();
+        const data = await getClientsData();
         setClientsData(data);
       } catch (err) {
         setError(err as Error);
@@ -27,5 +27,3 @@ function useClientsData() {
 
   return {clientsData, loading, error};
 }
-
-export default useClientsData;

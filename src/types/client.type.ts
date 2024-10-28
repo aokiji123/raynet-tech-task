@@ -1,4 +1,6 @@
-export type ClientsRow = {
+import {RoleEnum, StateEnum} from "@/enums";
+
+type ClientType = {
   id: number;
   name: string;
   titleBefore: string | null;
@@ -6,8 +8,8 @@ export type ClientsRow = {
   lastName: string | null;
   titleAfter: string | null;
   person: boolean;
-  role: string;
-  state: string;
+  role: RoleEnum;
+  state: StateEnum;
   rating: string | null;
   owner: {
     id: number;
@@ -82,3 +84,5 @@ export type ClientsRow = {
   inlineGdpr: string[];
   _version: number;
 };
+
+export default ClientType

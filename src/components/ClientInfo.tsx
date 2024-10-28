@@ -1,14 +1,14 @@
-import {ClientsRow} from "@/types/clients/clients-row.type.ts";
-import {StateEnum} from "@/enums/state.enum.ts";
-import {RoleEnum} from "@/enums/role.enum.ts";
+import {ClientType} from "@/types";
+import {ShowOnMapLink} from "@/components";
+import {RoleEnum, StateEnum} from "@/enums";
 import {getStateClass} from "@/utils/getStateColor.ts";
-import ShowOnMap from "@/components/ShowOnMap.tsx";
+import {memo} from "react";
 
 interface ClientInfoProps {
-  client: ClientsRow;
+  client: ClientType;
 }
 
-function ClientInfo({client}: ClientInfoProps) {
+const ClientInfo = memo(({client}: ClientInfoProps) => {
   return (
     <div className="mt-5 p-5 border-black border-[3px] w-[500px]">
       <div className="flex">
@@ -26,7 +26,7 @@ function ClientInfo({client}: ClientInfoProps) {
           <p>{client.primaryAddress?.address.zipCode} {client.primaryAddress?.address.city}</p>
           <p>{client.primaryAddress?.address.country}</p>
         </div>
-        <ShowOnMap
+        <ShowOnMapLink
           street={client.primaryAddress?.address?.street as string}
           city={client.primaryAddress?.address.city as string}
           postcode={client.primaryAddress?.address.zipCode as string}
@@ -40,6 +40,6 @@ function ClientInfo({client}: ClientInfoProps) {
       <p>Vlastník: <strong>{client.owner?.fullName}</strong></p>
     </div>
   );
-}
+})
 
 export default ClientInfo;

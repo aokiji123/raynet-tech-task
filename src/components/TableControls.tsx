@@ -1,14 +1,14 @@
 import {ChangeEvent} from 'react';
-import {StateEnum} from '@/enums/state.enum.ts';
-import {RoleEnum} from '@/enums/role.enum.ts';
+import {ClientType} from "@/types";
+import {RoleEnum, StateEnum} from "@/enums";
 
 type FilterControlsProps = {
-  onSearch: (searchText: string) => void;
-  onStateChange: (state: string) => void;
-  onRoleChange: (role: string) => void;
+  onSearch: (text: string) => void;
+  onStateChange: (state: ClientType['state']) => void;
+  onRoleChange: (role: ClientType['role']) => void;
 };
 
-function FilterControls({onSearch, onStateChange, onRoleChange}: FilterControlsProps) {
+const TableControls = ({onSearch, onStateChange, onRoleChange}: FilterControlsProps) => {
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     onSearch(event.target.value.toLowerCase());
   };
@@ -56,4 +56,4 @@ function FilterControls({onSearch, onStateChange, onRoleChange}: FilterControlsP
   );
 }
 
-export default FilterControls;
+export default TableControls;

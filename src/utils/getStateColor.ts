@@ -1,4 +1,4 @@
-import {StateEnum} from "@/enums/state.enum.ts";
+import {StateEnum} from "@/enums";
 
 export const getStateClass = (state: StateEnum): string => {
   switch (state) {
