@@ -14,8 +14,8 @@ const CLIENT_TABLE_DATA: TableColumn<ClientType>[] = [
     name: 'STAV',
     selector: (row: ClientType) => row.state || '',
     cell: (row: ClientType) => {
-      const stateLabel = StateEnum[row.state] || '';
-      const stateClass = getStateClass(stateLabel as StateEnum);
+      const stateLabel = StateEnum[row.state as keyof typeof StateEnum] || '';
+      const stateClass = getStateClass(stateLabel);
       return <span className={`${stateClass}`}>{stateLabel}</span>;
     },
     sortable: true,
@@ -23,7 +23,7 @@ const CLIENT_TABLE_DATA: TableColumn<ClientType>[] = [
   {
     name: 'VZTAH',
     selector: (row: ClientType) => row.role || '-',
-    cell: (row: ClientType) => RoleEnum[row.role] || '-',
+    cell: (row: ClientType) => RoleEnum[row.role as keyof typeof RoleEnum] || '-',
     sortable: true,
   },
   {

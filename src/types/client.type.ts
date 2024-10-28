@@ -1,5 +1,3 @@
-import {RoleEnum, StateEnum} from "@/enums";
-
 type ClientType = {
   id: number;
   name: string;
@@ -8,8 +6,8 @@ type ClientType = {
   lastName: string | null;
   titleAfter: string | null;
   person: boolean;
-  role: RoleEnum;
-  state: StateEnum;
+  role: string;
+  state: string;
   rating: string | null;
   owner: {
     id: number;
