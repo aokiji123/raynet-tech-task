@@ -1,9 +1,9 @@
 import {memo} from "react";
 
 interface ShowOnMapProps {
-  street: string;
-  city: string;
-  postcode: string
+  street: string | undefined;
+  city: string | undefined;
+  postcode: string | undefined;
 }
 
 const ShowOnMapLink = memo(({street, city, postcode}: ShowOnMapProps) => {

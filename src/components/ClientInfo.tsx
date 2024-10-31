@@ -27,9 +27,9 @@ const ClientInfo = memo(({client}: ClientInfoProps) => {
           <p>{client.primaryAddress?.address.country}</p>
         </div>
         <ShowOnMapLink
-          street={client.primaryAddress?.address?.street as string}
-          city={client.primaryAddress?.address.city as string}
-          postcode={client.primaryAddress?.address.zipCode as string}
+          street={client.primaryAddress?.address?.street}
+          city={client.primaryAddress?.address.city}
+          postcode={client.primaryAddress?.address.zipCode}
         />
       </div>
       <p className="mb-3">
